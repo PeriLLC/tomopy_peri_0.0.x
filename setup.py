@@ -37,10 +37,13 @@ VERSION = '0.0.1'
 
 NVIDIA_INC_DIRS = []
 NVCC = 'nvcc'
+CUDALIB = '/usr/local/cuda/lib64'
+
 for path in ('/usr/local/cuda', '/opt/cuda'):
     if os.path.exists(path):
         NVIDIA_INC_DIRS.append(os.path.join(path, 'include'))
         NVCC = os.path.join(path, 'bin', 'nvcc')
+        CUDALIB = os.path.join(path, 'lib64')
         break
 else:
     print >>sys.stderr, "The CUDA compiler and headers required to build " \
@@ -119,10 +122,11 @@ class GPUCleaner(clean):
 
 
 cuda_extension = Extension('lib.pml_cuda',
-                    libraries = ['cuda', 'z'],
+                    libraries = ['cuda','cudart', 'z'],
                     extra_objects = ['pml_cuda_kernel.o'],
                     sources = ['./src/pml_cuda.c'],
                     include_dirs = NVIDIA_INC_DIRS,
+                    library_dirs =[CUDALIB],
                     extra_compile_args = EXTRA_COMPILE_ARGS)
 
 setup_args = dict(
