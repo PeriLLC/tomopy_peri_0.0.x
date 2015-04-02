@@ -277,6 +277,8 @@ int findCudaDevice(){
 			return -1;
 		}
 		
+		printf("INFO: Found Cuda Device %d, name is %s\n",i,deviceProp.name);
+
 		//sm>=2.0 is required!
 		if((deviceProp.major<2)||(deviceProp.computeMode==cudaComputeModeProhibited))
 			continue;
@@ -549,7 +551,7 @@ void cleanCuda(float*dev_suma,float*dev_E,float*dev_F,float*dev_G,
         fprintf(stderr, "cudaDeviceReset failed!\n");
     }
 	else
-		printf("INFO Cuda device reset!\n");
+		printf("INFO: Cuda device reset!\n");
 	
 };
 
