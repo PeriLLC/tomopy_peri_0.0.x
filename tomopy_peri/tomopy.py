@@ -3,7 +3,7 @@ from __future__ import absolute_import
 import tomopy
 import logging
 import numpy as np
-from tomograperi.pml_cuda import pml_cuda
+from tomopy_peri.pml_cuda import pml_cuda
 
 # --------------------------------------------------------------------
 

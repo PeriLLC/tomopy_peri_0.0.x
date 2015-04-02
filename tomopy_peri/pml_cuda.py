@@ -7,10 +7,10 @@ import ctypes
 
 # Get the shared library.
 if os.name == 'nt':
-    libpath = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..', 'lib/pml_cuda.dll'))
+    libpath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'lib/pml_cuda.dll'))
     librecon_cuda = ctypes.CDLL(libpath)
 else:
-    libpath = os.path.abspath(os.path.join(os.path.dirname(__file__),'../..', 'lib/libpml_cuda.so'))
+    libpath = os.path.abspath(os.path.join(os.path.dirname(__file__),'..', 'lib/pml_cuda.so'))
     librecon_cuda = ctypes.CDLL(libpath)
 
 # --------------------------------------------------------------------

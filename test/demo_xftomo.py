@@ -9,7 +9,7 @@ import phantom
 import numpy as np
 from skimage.transform import radon
 import pylab as pyl
-import tomograperi.tomopy
+import tomopy_peri.tomopy
 
 # SIMULATED TOMO DATA
 #---------------------
@@ -39,8 +39,6 @@ if simulate_misaligned_projections:
 d.diagnose_center()
 d.optimize_center()
 
-d.pml_cuda()
-'''
 d.art(channel=0, emission=emission, iters=iters)
 tomopy.xftomo_writer(d.data_recon, channel=0, output_file='/tmp/art/art_{:}_{:}.tif')
 
@@ -54,7 +52,6 @@ d.theta = theta
 d.mlem(channel=0, emission=emission, iters=iters)
 tomopy.xftomo_writer(d.data_recon, output_file='/tmp/mlem/mlem_{:}_{:}.tif')
 
-d.pml(channel=0, emission=emission, iters=iters)
-tomopy.xftomo_writer(d.data_recon, output_file='/tmp/pml/pml_{:}_{:}.tif')
-'''
+d.pml_cuda(channel=0, emission=emission, iters=iters)
+tomopy.xftomo_writer(d.data_recon, output_file='/tmp/pml_cuda/pml_{:}_{:}.tif')
 
