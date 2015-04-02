@@ -1,6 +1,25 @@
-# -*- coding: utf-8 -*-
-"""Demonstrate reocnstruction of XFTomo data.
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+#
+#    Copyright 2014-2015 Dake Feng, Peri LLC, dakefeng@gmail.com
+#
+#    This file is part of TomograPeri.
+#
+#    TomograPeri is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Lesser General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    TomograPeri is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU Lesser General Public License
+#    along with TomograPeri.  If not, see <http://www.gnu.org/licenses/>.
 
+"""
+Demonstrate reocnstruction of XFTomo data, with pml algorithm accelerated by CUDA GPGPU.
 """
 import tomopy
 import ipdb
@@ -53,5 +72,5 @@ d.mlem(channel=0, emission=emission, iters=iters)
 tomopy.xftomo_writer(d.data_recon, output_file='/tmp/mlem/mlem_{:}_{:}.tif')
 
 d.pml_cuda(channel=0, emission=emission, iters=iters)
-tomopy.xftomo_writer(d.data_recon, output_file='/tmp/pml_cuda/pml_{:}_{:}.tif')
+tomopy.xftomo_writer(d.data_recon, output_file='/tmp/pml_cuda/pml_{:}_{:}.png')
 
