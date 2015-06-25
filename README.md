@@ -3,7 +3,7 @@ The hardware accelleration algorithms for tomopy.
 
 The supported functions:
 
-1. pml algorithm, on CUDA hardware.
+1. pml algorithm, on CUDA GPGPU hardware natively supported.
 
 How TO INSTALL:
 
